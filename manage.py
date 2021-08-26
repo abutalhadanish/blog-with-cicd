@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Copyright (c) 2019 - present AppSeed.us
+Simple Blogging System with CI/CD Demo - Made by Abutalha Danish
 """
 
 import os

@@ -15,6 +15,7 @@ __pycache__/
 env
 env__
 venv
+.venv
 
 # other
 .DS_Store
@@ -25,3 +26,4 @@ package-lock.json
 staticfiles/*
 !staticfiles/.gitkeep 
 .vscode/symbols.json
+.tabnine.model

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+Simple Blogging System with CI/CD Demo - Made by Abutalha Danish
 """
 
 from django.contrib.auth.decorators import login_required
@@ -9,7 +9,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django import template
 
-@login_required(login_url="/login/")
+@login_required
 def index(request):
 
     context = {}
@@ -18,7 +18,7 @@ def index(request):
     html_template = loader.get_template( 'index.html' )
     return HttpResponse(html_template.render(context, request))
 
-@login_required(login_url="/login/")
+# @login_required(login_url="/login/")
 def pages(request):
     context = {}
     # All resource paths end in .html.
@@ -36,7 +36,8 @@ def pages(request):
         html_template = loader.get_template( 'page-404.html' )
         return HttpResponse(html_template.render(context, request))
 
-    except:
+    except Exception as e:
+        print (e)
     
         html_template = loader.get_template( 'page-500.html' )
         return HttpResponse(html_template.render(context, request))

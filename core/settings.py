@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+Simple Blogging System with CI/CD Demo - Made by Abutalha Danish
 """
 
 import os
@@ -30,7 +30,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'  # Enable the inner app 
+    'django.contrib.sites',
+
+    'django_extensions',
+    'allauth.account',
+    # 'allauth.socialaccount',
+    'allauth',
+    'crispy_forms',
+
+    'app',  # Enable the inner app 
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +132,28 @@ STATICFILES_DIRS = (
 )
 #############################################################
 #############################################################
+
+SITE_ID = 1
+
+AUTH_USER_MODEL='core.User'
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = '/'
+
+# ACCOUNT_FORMS = {'signup': 'core.forms.CustomSignupForm'}
+
+ACCOUNT_LOGOUT_ON_GET = True
+
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

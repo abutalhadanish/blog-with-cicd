@@ -1,10 +1,10 @@
-# [Soft UI Design System](https://appseed.us/ui-kit/soft-ui-design-system) Django
+# [Simple Blogging System with CI/CD Pipelines](https://appseed.us/ui-kit/soft-ui-design-system) Django
 
-**[Soft UI Design System](https://appseed.us/ui-kit/soft-ui-design-system)** is a Premium Bootstrap 5 UI Kit designed by [Creative-Tim](https://bit.ly/3fKQZaL) designed for those who like bold elements and beautiful websites. **Soft UI Design System Django**  is a simple Django seed project provided by AppSeed with a modular codebase, database, authentication and deployment scripts - Features:
+**[Simple Blogging System with CI/CD Pipelines](https://appseed.us/ui-kit/soft-ui-design-system)** is a Premium Bootstrap 5 UI Kit designed by [Creative-Tim](https://bit.ly/3fKQZaL) designed for those who like bold elements and beautiful websites. **Simple Blogging System with CI/CD Pipelines Django**  is a simple Django seed project provided by AppSeed with a modular codebase, database, authentication and deployment scripts - Features:
 
 <br />
 
-- UI Kit: **Soft UI Design System** (Free Version) by **Creative-Tim**
+- UI Kit: **Simple Blogging System with CI/CD Pipelines** (Free Version) by **Creative-Tim**
 - SQLite Database, Django Native ORM
 - Modular design, clean codebase
 - Session-Based Authentication, Forms validation
@@ -15,8 +15,8 @@
 
 > Links
 
-- [Soft UI Design System Django](https://appseed.us/product/django-soft-ui-design-system) - product page
-- [Soft UI Design System Django - Demo](https://django-soft-ui-free.appseed-srv1.com/) - LIVE Deployment
+- [Simple Blogging System with CI/CD Pipelines Django](https://appseed.us/product/django-soft-ui-design-system) - product page
+- [Simple Blogging System with CI/CD Pipelines Django - Demo](https://django-soft-ui-free.appseed-srv1.com/) - LIVE Deployment
 
 <br />
 
@@ -215,9 +215,9 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 
 <br />
 
-## [Soft UI Design System](https://appseed.us/ui-kit/soft-ui-design-system) - UI Kit
+## [Simple Blogging System with CI/CD Pipelines](https://appseed.us/ui-kit/soft-ui-design-system) - UI Kit
 
-Most complex and innovative Design System Made by Creative Tim. Soft UI Design System is built with over 70 frontend individual elements, like buttons, inputs, navbars, navtabs, cards or alerts, giving you the freedom of choosing and combining. All components can take variations in colour, that you can easily modify using SASS files and classes.
+Most complex and innovative Design System Made by Creative Tim. Simple Blogging System with CI/CD Pipelines is built with over 70 frontend individual elements, like buttons, inputs, navbars, navtabs, cards or alerts, giving you the freedom of choosing and combining. All components can take variations in colour, that you can easily modify using SASS files and classes.
 
 You will save a lot of time going from prototyping to full-functional code, because all elements are implemented. This Free Bootstrap 5 UK Kit is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
 
@@ -232,4 +232,4 @@ You will save a lot of time going from prototyping to full-functional code, beca
 <br />
 
 ---
-[Soft UI Design System](https://appseed.us/ui-kit/soft-ui-design-system) Django - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator).
+[Simple Blogging System with CI/CD Pipelines](https://appseed.us/ui-kit/soft-ui-design-system) Django - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator).
