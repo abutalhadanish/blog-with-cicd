@@ -44,6 +44,13 @@ class HomeView(TemplateView):
         return {'blogs': Blog.objects.filter(is_active=True).order_by('-created_at')}
 
 @method_decorator(login_required, name='dispatch')
+class ProfileView(TemplateView):
+    template_name = 'pages/home.html'
+    
+    def get_context_data(self, **kwargs):
+        return {'blogs': Blog.objects.filter(is_active=True, created_by=self.request.user).order_by('-created_at'), 'header': 'Blogs Created By Me'}
+
+@method_decorator(login_required, name='dispatch')
 class SinglePostView(TemplateView):
     template_name = 'pages/single.html'
     
