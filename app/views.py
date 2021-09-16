@@ -9,10 +9,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django import template
+from django.urls.base import reverse
 from .models import Blog
 from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 
 @login_required
@@ -34,9 +36,11 @@ def create_blog(request):
                 error_message = str(e)
 
         print("POSt", text, error_message)
+        if not error_message:
+            return HttpResponseRedirect(reverse('home'))
     return render(request, template_name, {'error_message': error_message})
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class HomeView(TemplateView):
     template_name = 'pages/home.html'
     
@@ -48,15 +52,16 @@ class ProfileView(TemplateView):
     template_name = 'pages/home.html'
     
     def get_context_data(self, **kwargs):
-        return {'blogs': Blog.objects.filter(is_active=True, created_by=self.request.user).order_by('-created_at'), 'header': 'Blogs Created By Me'}
+        return {'blogs': Blog.objects.filter(is_active=True, created_by=self.request.user).order_by('-created_at'), 'header': 'Blogs Created By Me', 'display_num_blogs': True}
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class SinglePostView(TemplateView):
     template_name = 'pages/single.html'
     
     def get_context_data(self, **kwargs):
         # print("KW", kwargs)
-        return {'blog': Blog.objects.get(is_active=True, pk=kwargs['pk'])}
+        blog = get_object_or_404(Blog, is_active=True, pk=kwargs['pk'])
+        return {'blog': blog}
     
 @login_required
 def index(request):
@@ -67,10 +72,11 @@ def index(request):
     html_template = loader.get_template( 'index.html' )
     return HttpResponse(html_template.render(context, request))
 
+@login_required
 def delete_post(request):
     blog_id = request.POST['post_id']
     try:
-        blog = Blog.objects.get(pk=blog_id*88)
+        blog = Blog.objects.get(pk=blog_id)
         if not request.user == blog.created_by:
             raise Exception('You do not have permission to delete this post.')
 
@@ -78,8 +84,9 @@ def delete_post(request):
         blog.save()
         print("BBBB ", blog_id, blog)
         messages.success(request, 'Post successfully deleted.')
+        return HttpResponseRedirect(reverse('home'))
     except:
-        messages.error(request, 'Unable to deleete post !')
+        messages.error(request, 'Unable to delete post !')
 
 
     print("varss ", blog_id)

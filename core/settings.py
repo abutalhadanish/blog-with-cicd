@@ -163,3 +163,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

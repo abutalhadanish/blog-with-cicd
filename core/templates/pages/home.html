@@ -7,7 +7,9 @@
               <i class="fas fa-warehouse"></i> &nbsp; &nbsp;
                 {{header|default:'Recent Blog Posts'}}
             </div>
+            {% if display_num_blogs %}
             <div class="badge bg-gradient-info">{{user.number_of_blogs}} Blogs Created</div>
+            {% endif %}
           </h4>
           {% for blog in blogs %}
             {% include 'includes/blog.html' %}
