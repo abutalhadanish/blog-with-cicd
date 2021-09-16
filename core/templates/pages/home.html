@@ -1,0 +1,13 @@
+{% extends 'layouts/bloglist-base.html' %}
+
+{% block page_content %}
+      <div class="p-4 border" style="background-color: ghostwhite;">
+          <h4 class='text-secondary border-bottom border-3 pb-3 mb-4'>
+            <i class="fas fa-warehouse"></i> &nbsp; &nbsp;
+            Recent Blog Posts
+          </h4>
+          {% for blog in blogs %}
+            {% include 'includes/blog.html' %}
+          {% endfor %}
+      </div>
+{% endblock page_content %}

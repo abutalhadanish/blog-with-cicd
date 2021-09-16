@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Author {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} blog-author bg-gray-100 {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation-light.html" %}
+
+  <section class="py-sm-7 py-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+
+            <div class="p-4 bg-white border">
+                <h2>Create a new blog post</h2>
+                {% if error_message %}
+                <div class="alert alert-danger text-white font-weight-bold" role="alert">
+                  <b>Error:</b> {{error_message}}
+                </div>
+                {% endif %}
+                <form method="POST" action="">
+                    <br>
+                    {% csrf_token %}
+                    <textarea name="text" cols="40" rows="15" class="textarea form-control" id="id_text" spellcheck="false"></textarea>
+                    <br><br>
+                    <div class="text-right">
+                    <button type="submit" class="btn bg-gradient-primary btn-lg"> Post </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+
+
+{% block javascripts %}
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+  <script src='https://cdn.tiny.cloud/1/zga6sym1ozhat56s38kdnemazsi77ig4hqpog6hefunq71jn/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+  </script>
+  <script>
+    tinymce.init({
+      selector: '#id_text',
+        menubar: false,
+    });
+  </script>
+</head>
+{% endblock javascripts %}

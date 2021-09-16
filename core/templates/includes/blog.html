@@ -1,0 +1,75 @@
+{% load static %}
+
+<div class="card text-left mt-3">
+
+  <div class="card-header border-bottom pt-3 pb-1 px-4">
+    <div class="card-title">
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col-auto mt-1">
+                  <img src="{% static 'assets/img/user.png'%}" style="width: 50px; height:50px" alt="">
+                </div>
+                <div class="col">
+                  <small>POSTED BY</small>
+                  <h5>{{blog.created_by}}</h5>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-auto ml-auto">
+              {{blog.created_at|timesince}} ago
+
+              <div class="dropdown show px-2 cursor-pointer" style="display: inline-block; margin-left: 15px">
+                <span class="dropdown-toggleNO" id="dropdownMenuLink" data-toggle="dropdown"  aria-expanded="false">
+                  <i class="fas fa-ellipsis-v text-lg text-secondary"></i>
+                </span>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="position:absolute; right: 0">
+                {% if user == blog.created_by %} 
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-{{blog.id}}">Delete Post</a>
+                {% endif %}
+                  <span class="dropdown-item" href="#" onclick="navigator.clipboard.writeText('{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{blog.get_absolute_url}}');">Copy Link</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+    <div class="row">
+      <div class="col">
+        {% autoescape off %}
+                {{blog.text}}
+        {% endautoescape %}
+
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal-{{blog.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        You won't be able to undo this action.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="{% url 'single_post' blog.id %}" method="post">
+          {% csrf_token %}
+          <input name="post_id" value="{{blog.id}}" type="hidden" />
+          <button type="submit" class="btn bg-gradient-primary">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
