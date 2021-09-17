@@ -60,6 +60,7 @@ class SinglePostView(TemplateView):
     template_name = 'pages/single.html'
     
     def get_context_data(self, **kwargs):
+        error = 5/0
         # print("KW", kwargs)
         blog = get_object_or_404(Blog, is_active=True, pk=kwargs['pk'])
         return {'blog': blog}
