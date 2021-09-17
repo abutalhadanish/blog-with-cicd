@@ -19,6 +19,7 @@ from django.shortcuts import get_object_or_404
 
 @login_required
 def create_blog(request):
+    # Handling both get and Post request for blog creation
     template_name = 'pages/create-blog.html'
     error_message = None
     if request.method == 'POST':
