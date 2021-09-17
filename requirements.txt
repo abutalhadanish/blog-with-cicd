@@ -10,3 +10,4 @@ python-decouple
 gunicorn
 django_extensions
 whitenoise
+django-allauth
