@@ -53,4 +53,5 @@ class BlogViewTests(TestCase):
         self.assertNotContains(response, 'test 334455666')
 
 
-
+# Logged in should access the profile, rest shouldn't
+# tests for various URLs
