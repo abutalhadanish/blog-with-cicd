@@ -33,8 +33,14 @@
             </a>
           </li>
           <li class="nav-item my-auto ms-3 ms-lg-0">
+          {% if user.is_authenticated %}
             <a href="{% url 'account_logout' %}" 
                class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0">Logout</a>
+          {% else %}
+            <a href="{% url 'account_login' %}" 
+               class="btn btn-sm  bg-gradient-info  btn-round mb-0 me-1 mt-2 mt-md-0">LOGIN</a>
+
+          {% endif %}
           </li>
         </ul>
       </div>
