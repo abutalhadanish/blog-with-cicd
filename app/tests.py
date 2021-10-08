@@ -32,22 +32,16 @@ class BlogViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_deleted_blog(self):
-        # user = User.objects.create(username='test', email='test@example.com', password='test')
-        # self.client.login(username='test', password='test')
         blog = create_blog('test', self.user1, is_active=False)
         response = self.client.get(reverse('single_post', args=[blog.pk]))
         self.assertEqual(response.status_code, 404)
 
     def test_valid_blog_on_homepage(self):
-        # user = User.objects.create(username='test', email='test@example.com', password='test')
-        # self.client.login(username='test', password='test')
         blog = create_blog('test 334455666', self.user1, is_active=True)
         response = self.client.get(reverse('home'))
         self.assertContains(response, 'test 334455666')
 
     def test_deleted_blog_on_homepage(self):
-        # user = User.objects.create(username='test', email='test@example.com', password='test')
-        # self.client.login(username='test', password='test')
         blog = create_blog('test 334455666', self.user1, is_active=False)
         response = self.client.get(reverse('home'))
         self.assertNotContains(response, 'test 334455666')
