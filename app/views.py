@@ -59,8 +59,7 @@ class ProfileView(TemplateView):
 class SinglePostView(TemplateView):
     template_name = 'pages/single.html'
     
-    def get_context_data(self, **kwargs):
-        z=1/0
+    def get_context_data(self, **kwargs): #EEEEE
         blog = get_object_or_404(Blog, is_active=True, pk=kwargs['pk'])
         return {'blog': blog}
     
