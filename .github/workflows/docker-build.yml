@@ -4,7 +4,6 @@ on: [push]
 
 env:
   WEB_IMAGE: ghcr.io/abutalhadanish/blog-with-cicd/web:test
-  # NGINX_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/nginx
 
 jobs:
 
