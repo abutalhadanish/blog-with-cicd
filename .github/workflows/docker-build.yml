@@ -1,10 +1,9 @@
-name: Continuous Integration and Delivery
+name: Continuous Deployment Build Generation
 
 on:
   push:
     branches:
       - master
-      - docker-build
 
 env:
   WEB_IMAGE: ghcr.io/abutalhadanish/blog-with-cicd/web:deploy
